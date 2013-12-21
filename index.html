@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="todo">
   <head>
     <meta charset="utf-8">
     <title>Todo</title>
@@ -15,22 +15,33 @@
     <script src="dist/js/angular/angular-sanitize.js"></script>
     <script src="dist/js/ionic-angular.js"></script>
     <script src="dist/js/app.js"></script>
-
-    <!-- Needed for Cordova/PhoneGap -->
-    <script type="text/javascript" src="cordova.js"></script>
   </head>
   <body>
-    <header class="bar bar-header bar-light">
-      <h1 class="title">Todos</h1>
-    </header>
-    <div ng-controller="TodoCtrl">
-      <content has-header="true">
-        <list>
-          <item ng-repeat="task in tasks">
-            {{task.title}}
-          </item>
-        </list>
-      </content>
-    </div>
+    <side-menus>
+      <pane side-menu-content ng-app="todo" ng-controller="TodoCtrl" has-header="true">
+        <header class="bar bar-header bar-light">
+          <button class="button button-clear ion-navicon-round" ng-click="toggleMenu()"></button>
+        </header>
+        <br><br>
+        <ul class="list">
+          <li class="item item-checkbox" ng-repeat="task in tasks">
+            <label class="checkbox">
+              <input type="checkbox" ng-model="task.complete">
+            </label>
+              {{task.title}}
+          </li>
+        </ul>
+      </pane>
+      <side-menu side="left">
+        <ul class="list">
+          <li class="item item-checkbox" ng-repeat="task in tasks">
+              {{task.title}}
+          </li>
+        </ul>
+      </side-menu>
+    </side-menus>
+    <footer class="bar bar-footer">
+      <div class="title">Footer</div>
+    </footer>
   </body>
 </html>
