@@ -1,24 +1,36 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html ng-app>
   <head>
     <meta charset="utf-8">
     <title>Todo</title>
     <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
 
-    <link rel="stylesheet" href="css/ionic.css">
+    <link rel="stylesheet" href="dist/css/ionic.css">
 
-    <script src="js/ionic.js"></script>
-    <script src="js/angular/angular.js"></script>
-    <script src="js/angular/angular-animate.js"></script>
-    <script src="js/angular/angular-route.js"></script>
-    <script src="js/angular/angular-touch.js"></script>
-    <script src="js/angular/angular-sanitize.js"></script>
-    <script src="js/ionic-angular.js"></script>
+    <script src="dist/js/ionic.js"></script>
+    <script src="dist/js/angular/angular.js"></script>
+    <script src="dist/js/angular/angular-animate.js"></script>
+    <script src="dist/js/angular/angular-route.js"></script>
+    <script src="dist/js/angular/angular-touch.js"></script>
+    <script src="dist/js/angular/angular-sanitize.js"></script>
+    <script src="dist/js/ionic-angular.js"></script>
+    <script src="dist/js/app.js"></script>
 
     <!-- Needed for Cordova/PhoneGap -->
     <script type="text/javascript" src="cordova.js"></script>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <header class="bar bar-header bar-light">
+      <h1 class="title">Todos</h1>
+    </header>
+    <div ng-controller="TodoCtrl">
+      <content has-header="true">
+        <list>
+          <item ng-repeat="task in tasks">
+            {{task.title}}
+          </item>
+        </list>
+      </content>
+    </div>
   </body>
 </html>
