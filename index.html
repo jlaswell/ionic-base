@@ -19,13 +19,15 @@
     <!-- cordova script -->
     <script src="cordova.js"></script>
   </head>
-  <body>
+  <body ng-app="todo">
     <side-menus>
-      <pane side-menu-content ng-app="todo" ng-controller="TodoCtrl" has-header="true">
-        <header class="bar bar-header bar-light">
+      <pane side-menu-content ng-controller="TodoCtrl" has-header="true">
+        <content>
+        <header class="bar bar-header bar-dark">
           <button class="button button-icon" ng-click="toggleMenu()">
             <i class="icon ion-navicon-round"></i>
           </button>
+          <h1 class="title">Todo</h1>
         </header>
         <br><br>
         <ul class="list">
@@ -36,6 +38,7 @@
               {{task.title}}
           </li>
         </ul>
+        </content>
       </pane>
       <side-menu side="left">
         <ul class="list">
@@ -45,8 +48,5 @@
         </ul>
       </side-menu>
     </side-menus>
-    <footer class="bar bar-footer">
-      <div class="title">Footer</div>
-    </footer>
   </body>
 </html>
