@@ -17,13 +17,13 @@
     <script src="dist/js/app.js"></script>
 
     <!-- cordova script -->
-    <script src="cordova.js"></script>
+    <script src="js/cordova.js"></script>
   </head>
   <body ng-app="todo">
     <side-menus>
       <pane side-menu-content ng-controller="TodoCtrl" has-header="true">
         <content>
-        <header class="bar bar-header bar-dark">
+        <header class="bar bar-header bar-light">
           <button class="button button-icon" ng-click="toggleMenu()">
             <i class="icon ion-navicon-round"></i>
           </button>
@@ -41,11 +41,19 @@
         </content>
       </pane>
       <side-menu side="left">
-        <ul class="list">
-          <li class="item item-checkbox" ng-repeat="task in tasks">
-              {{task.title}}
-          </li>
-        </ul>
+        <header class="bar bar-header bar-stable">
+          <h1 class="title">Projects</h1>
+          <button class="button button-icon">
+            <i class="icon ion-plus"></i>
+          </button>
+        </header>
+        <content has-header="true" scroll="false">
+          <list>
+            <item ng-repeat="project in projects" ng-class="{active: activeProject == project}">
+              {{project.title}}
+            </item>
+          </list>
+        </content>
       </side-menu>
     </side-menus>
   </body>
